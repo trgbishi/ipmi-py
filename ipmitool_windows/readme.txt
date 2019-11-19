@@ -1,0 +1,1 @@
+ipmitool.exe -H xxx.xxx.xxx.xxx -U xxx -P xxx
