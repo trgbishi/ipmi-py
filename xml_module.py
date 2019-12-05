@@ -89,7 +89,7 @@ def generate_items(units):
                           '                    <snmpv3_privprotocol>0</snmpv3_privprotocol>\n'
                           '                    <snmpv3_privpassphrase/>\n'
                           '                    <params/>\n'
-                          '                    <ipmi_sensor>+1.5 V</ipmi_sensor>\n'
+                          '                    <ipmi_sensor>{5}</ipmi_sensor>\n'
                           '                    <authtype>0</authtype>\n'
                           '                    <username/>\n'
                           '                    <password/>\n'
@@ -100,7 +100,7 @@ def generate_items(units):
                           '                    <inventory_link>0</inventory_link>\n'
                           '                    <applications>\n'
                           '                        <application>\n'
-                          '                            <name>{5}</name>\n'
+                          '                            <name>{6}</name>\n'
                           '                        </application>\n'
                           '                    </applications>\n'
                           '                    <valuemap/>\n'
@@ -126,7 +126,7 @@ def generate_items(units):
                           '                    <verify_peer>0</verify_peer>\n'
                           '                    <verify_host>0</verify_host>\n'
                           '                    <master_item/>\n'
-                          '                </item>'.format(name,get_zabbix_key(name), data.delay, data.history, data.trends, app))
+                          '                </item>'.format(name,get_zabbix_key(name), data.delay, data.history, data.trends, name, app))
     items_list.append('            </items>\n'
                       '            <discovery_rules/>\n'
                       '            <httptests/>\n'
