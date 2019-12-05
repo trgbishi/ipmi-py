@@ -14,7 +14,7 @@ group = 'ipmi'
 default_temp_name = 'IPMI Template'
 
 #更新间隔
-delay = '300'
+delay = '60'
 #历史数据保留时长
 history = '90d'
 #趋势存储时间
