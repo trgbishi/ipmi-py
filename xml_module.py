@@ -31,7 +31,7 @@ def generate_header(template_name):
 通过监控项名称 生成 监控项键值
 '''
 def get_zabbix_key(name):
-    return 'ipmi.' + name.replace(' ', '_').lower()
+    return 'ipmi.' + name.replace(' ', '.').replace('+','').replace('-','.').lower()
 
 '''
 生成模板应用集部分内容
@@ -80,7 +80,7 @@ def generate_items(units):
                           '                    <status>0</status>\n'
                           '                    <value_type>0</value_type>\n'
                           '                    <allowed_hosts/>\n'
-                          '                    <units>Volts</units>\n'
+                          '                    <units>{5}</units>\n'
                           '                    <snmpv3_contextname/>\n'
                           '                    <snmpv3_securityname/>\n'
                           '                    <snmpv3_securitylevel>0</snmpv3_securitylevel>\n'
@@ -89,7 +89,7 @@ def generate_items(units):
                           '                    <snmpv3_privprotocol>0</snmpv3_privprotocol>\n'
                           '                    <snmpv3_privpassphrase/>\n'
                           '                    <params/>\n'
-                          '                    <ipmi_sensor>{5}</ipmi_sensor>\n'
+                          '                    <ipmi_sensor>{6}</ipmi_sensor>\n'
                           '                    <authtype>0</authtype>\n'
                           '                    <username/>\n'
                           '                    <password/>\n'
@@ -100,7 +100,7 @@ def generate_items(units):
                           '                    <inventory_link>0</inventory_link>\n'
                           '                    <applications>\n'
                           '                        <application>\n'
-                          '                            <name>{6}</name>\n'
+                          '                            <name>{7}</name>\n'
                           '                        </application>\n'
                           '                    </applications>\n'
                           '                    <valuemap/>\n'
@@ -126,7 +126,7 @@ def generate_items(units):
                           '                    <verify_peer>0</verify_peer>\n'
                           '                    <verify_host>0</verify_host>\n'
                           '                    <master_item/>\n'
-                          '                </item>'.format(name,get_zabbix_key(name), data.delay, data.history, data.trends, name, app))
+                          '                </item>'.format(get_zabbix_key(name),get_zabbix_key(name), data.delay, data.history, data.trends,units[name], name, app))
     items_list.append('            </items>\n'
                       '            <discovery_rules/>\n'
                       '            <httptests/>\n'
@@ -181,7 +181,7 @@ def generate_triggers(units,alarm_lower1,alarm_lower2,alarm_lower3,alarm_higher1
                                 '            <manual_close>0</manual_close>\n'
                                 '            <dependencies/>\n'
                                 '            <tags/>\n'
-                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_lower1[name],name,data.unit_trigger_lower[units[name]]))
+                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_lower1[name],name,data.unit_trigger_lower1[units[name]]))
 
         if name in alarm_lower2:
             trigger_list.append('        <trigger>\n'
@@ -199,7 +199,7 @@ def generate_triggers(units,alarm_lower1,alarm_lower2,alarm_lower3,alarm_higher1
                                 '            <manual_close>0</manual_close>\n'
                                 '            <dependencies/>\n'
                                 '            <tags/>\n'
-                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_lower2[name],name,data.unit_trigger_lower[units[name]]))
+                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_lower2[name],name,data.unit_trigger_lower2[units[name]]))
 
         if name in alarm_lower3:
             trigger_list.append('        <trigger>\n'
@@ -217,7 +217,7 @@ def generate_triggers(units,alarm_lower1,alarm_lower2,alarm_lower3,alarm_higher1
                                 '            <manual_close>0</manual_close>\n'
                                 '            <dependencies/>\n'
                                 '            <tags/>\n'
-                                '        </trigger>'.format(data.default_temp_name, get_zabbix_key(name), alarm_lower3[name], name, data.unit_trigger_lower[units[name]]))
+                                '        </trigger>'.format(data.default_temp_name, get_zabbix_key(name), alarm_lower3[name], name, data.unit_trigger_lower3[units[name]]))
 
         if name in alarm_higher1:
             trigger_list.append('        <trigger>\n'
@@ -235,7 +235,7 @@ def generate_triggers(units,alarm_lower1,alarm_lower2,alarm_lower3,alarm_higher1
                                 '            <manual_close>0</manual_close>\n'
                                 '            <dependencies/>\n'
                                 '            <tags/>\n'
-                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_higher1[name],name,data.unit_trigger_higher[units[name]]))
+                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_higher1[name],name,data.unit_trigger_higher1[units[name]]))
 
         if name in alarm_higher2:
             trigger_list.append('        <trigger>\n'
@@ -253,7 +253,7 @@ def generate_triggers(units,alarm_lower1,alarm_lower2,alarm_lower3,alarm_higher1
                                 '            <manual_close>0</manual_close>\n'
                                 '            <dependencies/>\n'
                                 '            <tags/>\n'
-                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_higher2[name],name,data.unit_trigger_higher[units[name]]))
+                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_higher2[name],name,data.unit_trigger_higher2[units[name]]))
 
         if name in alarm_higher3:
             trigger_list.append('        <trigger>\n'
@@ -271,7 +271,7 @@ def generate_triggers(units,alarm_lower1,alarm_lower2,alarm_lower3,alarm_higher1
                                 '            <manual_close>0</manual_close>\n'
                                 '            <dependencies/>\n'
                                 '            <tags/>\n'
-                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_higher3[name],name,data.unit_trigger_higher[units[name]]))
+                                '        </trigger>'.format(data.default_temp_name,get_zabbix_key(name),alarm_higher3[name],name,data.unit_trigger_higher3[units[name]]))
     trigger_list.append('    </triggers>\n'\
                       '</zabbix_export>')
     return '\n'.join(trigger_list)

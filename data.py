@@ -8,7 +8,7 @@ version = '4.0'
 date = time.strftime('%Y-%m-%dT%H:%M:%SZ',time.localtime())
 
 #group
-group = 'ipmi'
+group = 'Templates/IPMI'
 
 #默认模板名称，当可见名称不按规则来无法解析时用
 default_temp_name = 'IPMI Template'
@@ -33,12 +33,29 @@ unit_applications['Volts'] = 'Voltage'
 unit_applications['RPM'] = 'Fans'
 application_other = 'Other'
 
-unit_trigger_lower = {}
-unit_trigger_higher = {}
-unit_trigger_lower['°C'] = '温度过低'
-unit_trigger_lower['Volts'] = '电压过低'
-unit_trigger_lower['RPM'] = '转速过低'
-unit_trigger_higher['°C'] = '温度过高'
-unit_trigger_higher['Volts'] = '电压过高'
-unit_trigger_higher['RPM'] = '转速过高'
+unit_trigger_lower1 = {}
+unit_trigger_higher1 = {}
+unit_trigger_lower1['°C'] = '温度低'
+unit_trigger_lower1['Volts'] = '电压低'
+unit_trigger_lower1['RPM'] = '转速低'
+unit_trigger_higher1['°C'] = '温度高'
+unit_trigger_higher1['Volts'] = '电压高'
+unit_trigger_higher1['RPM'] = '转速高'
 
+unit_trigger_lower2 = {}
+unit_trigger_higher2 = {}
+unit_trigger_lower2['°C'] = '温度较低'
+unit_trigger_lower2['Volts'] = '电压较低'
+unit_trigger_lower2['RPM'] = '转速较低'
+unit_trigger_higher2['°C'] = '温度较高'
+unit_trigger_higher2['Volts'] = '电压较高'
+unit_trigger_higher2['RPM'] = '转速较高'
+
+unit_trigger_lower3 = {}
+unit_trigger_higher3 = {}
+unit_trigger_lower3['°C'] = '温度过低'
+unit_trigger_lower3['Volts'] = '电压过低'
+unit_trigger_lower3['RPM'] = '转速过低'
+unit_trigger_higher3['°C'] = '温度过高'
+unit_trigger_higher3['Volts'] = '电压过高'
+unit_trigger_higher3['RPM'] = '转速过高'
