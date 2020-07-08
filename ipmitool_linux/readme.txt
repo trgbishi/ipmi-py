@@ -1,6 +1,8 @@
 解压
 tar -zxvf ipmitool-1.8.13.tar.gz
 
+需要gcc环境，离线安装包略
+
 编译
 cd ipmitool-1.8.13
 ./configure
