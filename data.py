@@ -24,6 +24,7 @@ trends = '365d'
 #需要替换的单位列表，如 degreesC 替换成 °C
 unit_trans = {}
 unit_trans['degrees C'] = '°C'
+unit_trans['percent'] = '%'
 
 #单位代表的应用集，不在此内的归于Other集
 unit_applications = {}
@@ -32,6 +33,7 @@ unit_applications['Watts'] = 'Power Supply'
 unit_applications['% Watts'] = 'Power Supply'
 unit_applications['Volts'] = 'Voltage'
 unit_applications['RPM'] = 'Fans'
+unit_applications['%'] = 'Other'
 application_other = 'Other'
 
 unit_trigger_lower1 = {}
@@ -39,36 +41,48 @@ unit_trigger_higher1 = {}
 unit_trigger_lower1['°C'] = '温度低'
 unit_trigger_lower1['Volts'] = '电压低'
 unit_trigger_lower1['RPM'] = '转速低'
+unit_trigger_lower1['Watts'] = '数值低'
 unit_trigger_lower1['% Watts'] = '数值低'
 unit_trigger_lower1[''] = '数值低'
+unit_trigger_lower1['%'] = '数值低'
 unit_trigger_higher1['°C'] = '温度高'
 unit_trigger_higher1['Volts'] = '电压高'
 unit_trigger_higher1['RPM'] = '转速高'
+unit_trigger_higher1['Watts'] = '数值高'
 unit_trigger_higher1['% Watts'] = '数值高'
 unit_trigger_higher1[''] = '数值高'
+unit_trigger_higher1['%'] = '数值高'
 
 unit_trigger_lower2 = {}
 unit_trigger_higher2 = {}
 unit_trigger_lower2['°C'] = '温度较低'
 unit_trigger_lower2['Volts'] = '电压较低'
 unit_trigger_lower2['RPM'] = '转速较低'
+unit_trigger_lower2['Watts'] = '数值较低'
 unit_trigger_lower2['% Watts'] = '数值较低'
 unit_trigger_lower2[''] = '数值较低'
+unit_trigger_lower2['%'] = '数值较低'
 unit_trigger_higher2['°C'] = '温度较高'
 unit_trigger_higher2['Volts'] = '电压较高'
 unit_trigger_higher2['RPM'] = '转速较高'
+unit_trigger_higher2['Watts'] = '数值较高'
 unit_trigger_higher2['% Watts'] = '数值较高'
 unit_trigger_higher2[''] = '数值较高'
+unit_trigger_higher2['%'] = '数值较高'
 
 unit_trigger_lower3 = {}
 unit_trigger_higher3 = {}
 unit_trigger_lower3['°C'] = '温度过低'
 unit_trigger_lower3['Volts'] = '电压过低'
 unit_trigger_lower3['RPM'] = '转速过低'
+unit_trigger_lower3['Watts'] = '数值过低'
 unit_trigger_lower3['% Watts'] = '数值过低'
 unit_trigger_lower3[''] = '数值过低'
+unit_trigger_lower3['%'] = '数值过低'
 unit_trigger_higher3['°C'] = '温度过高'
 unit_trigger_higher3['Volts'] = '电压过高'
 unit_trigger_higher3['RPM'] = '转速过高'
+unit_trigger_higher3['Watts'] = '数值过高'
 unit_trigger_higher3['% Watts'] = '数值过高'
 unit_trigger_higher3[''] = '数值过高'
+unit_trigger_higher3['%'] = '数值过高'
